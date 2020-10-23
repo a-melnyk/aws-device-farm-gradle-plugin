@@ -46,7 +46,7 @@ class DeviceFarmExtension {
      * [Optional] Wait for DeviceFarm to finish running the tests and consume results
      * Default: False
      */
-    boolean wait = false
+    boolean waitForResults = false
 
     /**
      * Console url template
@@ -122,11 +122,11 @@ class DeviceFarmExtension {
     }
 
     void useWait() {
-        wait = true;
+        waitForResults = true;
     }
 
     void uploadOnly() {
-        wait = false;
+        waitForResults = false;
     }
   
     void authentication(Closure closure) {

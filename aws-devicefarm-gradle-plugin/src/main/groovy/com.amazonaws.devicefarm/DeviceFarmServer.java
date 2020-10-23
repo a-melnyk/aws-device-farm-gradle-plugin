@@ -140,7 +140,7 @@ public class DeviceFarmServer extends TestServer {
 
         final ScheduleRunResult response = api.scheduleRun(request);
 
-        if (extension.isWait()) {
+        if (extension.isWaitForResults()) {
             DeviceFarmResultPoller poller = new DeviceFarmResultPoller(extension, logger, api, utils);
             try {
                 Run completedRun = poller.pollTestRunForArn(response.getRun().getArn());
