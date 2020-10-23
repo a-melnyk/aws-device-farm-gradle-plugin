@@ -141,7 +141,8 @@ public class DeviceFarmServer extends TestServer {
                 .withName(String.format("%s (Gradle)", testedApk == null ? testPackage.getName() : testedApk.getName()));
 
         final ScheduleRunResult response = api.scheduleRun(request);
-        if (extension.isWait()) {
+
+        if (extension.isWaitForResults()) {
             DeviceFarmResultPoller poller = new DeviceFarmResultPoller(extension, logger, api, utils);
             try {
                 Run completedRun = poller.pollForRunCompletedStatus(response.getRun().getArn());

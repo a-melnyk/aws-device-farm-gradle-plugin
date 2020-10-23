@@ -50,7 +50,7 @@ class DeviceFarmExtension {
      * [Optional] Wait for DeviceFarm to finish running the tests and consume results
      * Default: False
      */
-    boolean wait = false
+    boolean waitForResults = false
 
     /**
      * [Optional] Produce output for Test Run results in format
@@ -141,14 +141,14 @@ class DeviceFarmExtension {
      * Tell the plugin to wait for the Run to reach COMPLETE state before finishing this gradle task
      */
     void useWait() {
-        wait = true;
+        waitForResults = true;
     }
 
     /**
      * Don't wait for the Run to finish only upload the packages and kick off a Run
      */
     void uploadOnly() {
-        wait = false;
+        waitForResults = false;
     }
 
     /**
